@@ -12,15 +12,14 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
-  const [introPlayed, setIntroPlayed] = useState(false)
-  const handleIntroDone = useCallback(() => setIntroPlayed(true), [])
+  const [ready, setReady] = useState(false)
+  const handleIntroDone = useCallback(() => setReady(true), [])
 
   return (
     <ThemeProvider>
       <LanguageProvider>
-        {/* CRT scanlines — hidden in light mode via CSS */}
+        {/* CRT scanlines */}
         <div
-          id="scanlines"
           className="fixed inset-0 pointer-events-none z-9998"
           style={{
             backgroundImage:
@@ -28,13 +27,13 @@ export default function App() {
           }}
         />
 
-        <IntroAnimation onDone={handleIntroDone} />
+        {/* Intro — desmonta sozinho quando termina */}
+        {!ready && <IntroAnimation onDone={handleIntroDone} />}
 
+        {/* Conteúdo principal — inline style para evitar dependência de classe Tailwind */}
         <div
-          id="app-root"
-          className={`bg-[#070707] text-white min-h-screen transition-opacity duration-700 ${
-            introPlayed ? 'opacity-100' : 'opacity-0'
-          }`}
+          className="bg-[#070707] text-white min-h-screen"
+          style={{ opacity: ready ? 1 : 0, transition: 'opacity 700ms ease' }}
         >
           <Header />
           <main>
