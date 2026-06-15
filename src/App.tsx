@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { LanguageProvider } from './context/LanguageContext'
 import { ThemeProvider } from './context/ThemeContext'
 import IntroAnimation from './components/IntroAnimation'
@@ -13,6 +13,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [introPlayed, setIntroPlayed] = useState(false)
+  const handleIntroDone = useCallback(() => setIntroPlayed(true), [])
 
   return (
     <ThemeProvider>
@@ -27,7 +28,7 @@ export default function App() {
           }}
         />
 
-        <IntroAnimation onDone={() => setIntroPlayed(true)} />
+        <IntroAnimation onDone={handleIntroDone} />
 
         <div
           id="app-root"
