@@ -21,17 +21,24 @@ export default function Cases() {
         <div className="grid md:grid-cols-3 gap-px bg-[#1C1C1C]">
           {tx.items.map((item, i) => (
             <Reveal key={i} delay={i * 100}>
-              <div className="bg-[#0C0C0C] p-8 hover:bg-[#0F0F0F] transition-colors duration-300 h-full group">
-                <span className="font-mono text-[10px] tracking-[0.3em] text-[#555] border border-[#222] px-3 py-1 block w-fit mb-6 uppercase group-hover:border-[#B4FF00] group-hover:text-[#B4FF00] transition-colors duration-200">
+              <div className="bg-[#0C0C0C] p-8 hover:bg-[#111] transition-colors duration-300 h-full group">
+                {/* Tag badge — visível */}
+                <span className="font-mono text-[10px] tracking-[0.3em] text-[#888] border border-[#333] px-3 py-1 block w-fit mb-6 uppercase group-hover:border-[#B4FF00] group-hover:text-[#B4FF00] transition-colors duration-200">
                   {item.tag}
                 </span>
-                <div className="h-40 bg-[#0A0A0A] border border-[#1A1A1A] mb-6 flex items-center justify-center">
-                  <span className="font-mono text-[10px] tracking-widest text-[#333] uppercase">
+
+                {/* Image placeholder */}
+                <div className="h-44 bg-[#111] border border-[#252525] mb-6 flex items-center justify-center group-hover:border-[#2A2A2A] transition-colors">
+                  <span className="font-mono text-[10px] tracking-widest text-[#555] uppercase">
                     {tx.imgLabel}
                   </span>
                 </div>
-                <h3 className="font-mono text-sm text-[#555] mb-1">{tx.coming}</h3>
-                <p className="text-[#3A3A3A] text-xs">{tx.comingDesc}</p>
+
+                {/* Label + desc */}
+                <h3 className="font-mono text-sm font-bold text-[#999] mb-1 group-hover:text-accent transition-colors duration-200">
+                  {tx.coming}
+                </h3>
+                <p className="text-[#666] text-xs leading-relaxed">{tx.comingDesc}</p>
               </div>
             </Reveal>
           ))}

@@ -20,7 +20,107 @@
   }
 }
 
-/* Scanlines — subtle CRT effect */
+/* ─── Light mode ──────────────────────────────────────────────────── */
+html[data-theme="light"] body {
+  background-color: #F8F8F8;
+  color: #0C0C0C;
+}
+
+html[data-theme="light"] #scanlines {
+  display: none;
+}
+
+html[data-theme="light"] #app-root {
+  background-color: #F8F8F8;
+  color: #0C0C0C;
+}
+
+/* Sections */
+html[data-theme="light"] section {
+  background-color: #F8F8F8 !important;
+}
+
+/* Alternate surface sections */
+html[data-theme="light"] section:nth-of-type(even) {
+  background-color: #F0F0F0 !important;
+}
+
+/* Header */
+html[data-theme="light"] header {
+  background: rgba(248, 248, 248, 0.92) !important;
+  border-color: #E0E0E0 !important;
+}
+
+/* Footer */
+html[data-theme="light"] footer {
+  background-color: #F0F0F0 !important;
+  border-color: #E0E0E0 !important;
+}
+
+/* Text overrides */
+html[data-theme="light"] .text-white {
+  color: #0C0C0C !important;
+}
+
+html[data-theme="light"] .text-\[\#888\],
+html[data-theme="light"] .text-\[\#777\],
+html[data-theme="light"] .text-\[\#666\] {
+  color: #444 !important;
+}
+
+html[data-theme="light"] .text-\[\#555\],
+html[data-theme="light"] .text-\[\#444\],
+html[data-theme="light"] .text-\[\#333\],
+html[data-theme="light"] .text-\[\#3A3A3A\],
+html[data-theme="light"] .text-\[\#999\] {
+  color: #555 !important;
+}
+
+html[data-theme="light"] .text-\[\#2A2A2A\] {
+  color: #777 !important;
+}
+
+/* Background overrides */
+html[data-theme="light"] .bg-\[\#070707\],
+html[data-theme="light"] .bg-\[\#0C0C0C\],
+html[data-theme="light"] .bg-\[\#050505\],
+html[data-theme="light"] .bg-\[\#0A0A0A\],
+html[data-theme="light"] .bg-\[\#0F0F0F\],
+html[data-theme="light"] .bg-\[\#111\] {
+  background-color: #F0F0F0 !important;
+}
+
+/* Border overrides */
+html[data-theme="light"] .border-\[\#1C1C1C\],
+html[data-theme="light"] .border-\[\#2A2A2A\],
+html[data-theme="light"] .border-\[\#222\],
+html[data-theme="light"] .border-\[\#111\],
+html[data-theme="light"] .border-\[\#1A1A1A\],
+html[data-theme="light"] .border-\[\#252525\] {
+  border-color: #DDD !important;
+}
+
+/* Grid bg */
+html[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Hero gradient adjustment */
+html[data-theme="light"] .scanlines::before {
+  display: none;
+}
+
+/* ─── Utilities ───────────────────────────────────────────────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
 .scanlines::before {
   content: '';
   position: fixed;
@@ -36,15 +136,7 @@
   z-index: 9997;
 }
 
-/* Grid background */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 64px 64px;
-}
-
-/* Glitch animation for intro */
+/* ─── Animations ──────────────────────────────────────────────────── */
 @keyframes glitch-x {
   0%, 100% { transform: translateX(0); opacity: 1; }
   10%       { transform: translateX(-3px); }
@@ -59,30 +151,11 @@
   20%, 24%, 55%                            { opacity: 0.6; }
 }
 
-@keyframes reveal-bar {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
-@keyframes scanline-intro {
-  from { top: -100%; }
-  to   { top: 100%; }
-}
-
-.glitch {
-  animation: glitch-x 0.5s steps(1) 1;
-}
-
-.flicker {
-  animation: flicker 0.3s steps(1) 2;
-}
-
-/* Intro wipe out */
 @keyframes wipe-up {
   from { clip-path: inset(0 0 0 0); }
   to   { clip-path: inset(100% 0 0 0); }
 }
 
-.wipe-out {
-  animation: wipe-up 0.5s ease-in forwards;
-}
+.glitch  { animation: glitch-x 0.5s steps(1) 1; }
+.flicker { animation: flicker 0.3s steps(1) 2; }
+.wipe-out { animation: wipe-up 0.5s ease-in forwards; }
