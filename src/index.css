@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #B4FF00;
+  --color-surface: #0C0C0C;
+  --color-border: #1C1C1C;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #070707;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #070707;
+    color: #ffffff;
+  }
+}
+
+/* Scanlines — subtle CRT effect */
+.scanlines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.07) 3px,
+    rgba(0, 0, 0, 0.07) 4px
+  );
+  z-index: 9997;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Glitch animation for intro */
+@keyframes glitch-x {
+  0%, 100% { transform: translateX(0); opacity: 1; }
+  10%       { transform: translateX(-3px); }
+  20%       { transform: translateX(3px); }
+  30%       { transform: translateX(-2px); }
+  40%       { transform: translateX(2px); }
+  50%       { transform: translateX(0); }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55%                            { opacity: 0.6; }
+}
+
+@keyframes reveal-bar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes scanline-intro {
+  from { top: -100%; }
+  to   { top: 100%; }
+}
+
+.glitch {
+  animation: glitch-x 0.5s steps(1) 1;
+}
+
+.flicker {
+  animation: flicker 0.3s steps(1) 2;
+}
+
+/* Intro wipe out */
+@keyframes wipe-up {
+  from { clip-path: inset(0 0 0 0); }
+  to   { clip-path: inset(100% 0 0 0); }
+}
+
+.wipe-out {
+  animation: wipe-up 0.5s ease-in forwards;
+}
