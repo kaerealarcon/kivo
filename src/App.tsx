@@ -31,7 +31,7 @@ export default function App() {
 
         <div
           id="app-root"
-          className={`min-h-screen transition-opacity duration-700 ${
+          className={`bg-[#070707] text-white min-h-screen transition-opacity duration-700 ${
             introPlayed ? 'opacity-100' : 'opacity-0'
           }`}
         >
