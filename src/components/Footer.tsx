@@ -72,11 +72,6 @@ export default function Footer() {
           </a>
         </div>
 
-        <nav className="flex items-center gap-5 font-mono text-xs text-[#444]">
-          <a href="#servicos" className="hover:text-accent transition-colors">{tx.nav.services}</a>
-          <a href="#processo" className="hover:text-accent transition-colors">{tx.nav.process}</a>
-          <a href="#sobre"    className="hover:text-accent transition-colors">{tx.nav.about}</a>
-        </nav>
       </div>
 
       <div className="border-t border-[#111] max-w-7xl mx-auto px-6 py-4">
