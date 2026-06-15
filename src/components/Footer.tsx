@@ -50,7 +50,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent border border-border hover:border-accent transition-colors duration-200"
+            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent transition-colors duration-200"
           >
             <IconInstagram />
           </a>
@@ -59,14 +59,14 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent border border-border hover:border-accent transition-colors duration-200"
+            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent transition-colors duration-200"
           >
             <IconLinkedin />
           </a>
           <a
             href={`mailto:${EMAIL}`}
             aria-label="Email"
-            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent border border-border hover:border-accent transition-colors duration-200"
+            className="w-9 h-9 flex items-center justify-center text-[#555] hover:text-accent transition-colors duration-200"
           >
             <IconMail />
           </a>
