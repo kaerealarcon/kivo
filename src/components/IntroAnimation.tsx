@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import KivoLogo from './KivoLogo'
 
 type Phase = 'flash' | 'show' | 'load' | 'exit' | 'done'
 
@@ -67,14 +68,11 @@ export default function IntroAnimation({ onDone }: { onDone: () => void }) {
         </p>
 
         {/* Logo */}
-        <h1
-          className={`text-white font-bold tracking-tight mb-10 ${
-            phase === 'load' ? 'glitch' : ''
-          }`}
-          style={{ fontSize: 'clamp(4rem, 14vw, 10rem)', lineHeight: 1 }}
+        <div
+          className={`flex justify-center mb-10 ${phase === 'load' ? 'glitch' : ''}`}
         >
-          KIVO
-        </h1>
+          <KivoLogo height={80} />
+        </div>
 
         {/* Loading bar */}
         <div

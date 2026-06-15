@@ -1,6 +1,7 @@
 import { WA_NUMBER } from '../constants'
 import { useLang } from '../context/LanguageContext'
 import { t } from '../translations'
+import KivoLogo from './KivoLogo'
 
 export default function Header() {
   const { lang, setLang } = useLang()
@@ -15,7 +16,7 @@ export default function Header() {
 
         {/* Logo SVG */}
         <a href="#" className="flex items-center">
-          <img src="/logo.svg" alt="KIVO" height="26" style={{ height: '26px', width: 'auto' }} />
+          <KivoLogo height={26} />
         </a>
 
         {/* Nav */}

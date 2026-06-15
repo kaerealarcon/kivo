@@ -1,6 +1,7 @@
 import { EMAIL, INSTAGRAM_URL, LINKEDIN_URL } from '../constants'
 import { useLang } from '../context/LanguageContext'
 import { t } from '../translations'
+import KivoLogo from './KivoLogo'
 
 function IconInstagram() {
   return (
@@ -40,7 +41,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
         {/* Logo */}
         <a href="#" className="flex items-center">
-          <img src="/logo.svg" alt="KIVO" style={{ height: '20px', width: 'auto' }} />
+          <KivoLogo height={20} />
         </a>
 
         {/* Social links */}
